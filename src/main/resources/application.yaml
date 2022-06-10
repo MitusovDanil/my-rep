@@ -1,0 +1,54 @@
+app:
+  name: compare-currency-rate
+  integrations:
+    currencies-rate:
+      id: 51aee4d39e394dc28cea03e7ae0536e7
+      baseCurrency: USD
+      baseUrl: https://openexchangerates.org/api
+      readTimeout: 1000
+      connectionTimeout: 1000
+    gif-provider:
+      key: 21zTEFfX3ELGSTjHIiJz9MlyGX7sEXi2
+      baseUrl: api.giphy.com/v1/gifs/random
+      lessTag: broke
+      moreTag: rich
+      limit: 1
+      readTimeout: 1000
+      connectionTimeout: 1000
+feign:
+  client:
+    config:
+      currency:
+        read-timeout: ${app.integrations.currencies-rate.readTimeout}
+        connect-timeout: ${app.integrations.currencies-rate.connectionTimeout}
+        logger-level: basic
+      gif:
+        read-timeout: ${app.integrations.gif-provider.readTimeout}
+        connect-timeout: ${app.integrations.gif-provider.connectionTimeout}
+        logger-level: basic
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: loggers, health, metrics, prometheus
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+      percentiles:
+        http:
+          server:
+            requests: 0.8,0.95,0.99
+    tags:
+      application: ${app.name}
+logging:
+  level:
+    io.github.comparecurrencyrate.integration.CurrencyRateClient: DEBUG
+    io.github.comparecurrencyrate.integration.GifClient: DEBUG

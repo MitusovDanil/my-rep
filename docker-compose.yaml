@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  producer:
+    container_name: currency-rate
+    build:
+      dockerfile: Dockerfile
+    image: currency-rate:latest
+    ports:
+      - 8080:8080
+    networks:
+      - spring
+networks:
+  spring:
