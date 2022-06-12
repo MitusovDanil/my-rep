@@ -1,7 +1,8 @@
-package io.github.comparecurrencyrate.service.currency;
+package io.github.comparecurrencyrate.domain.service;
 
 import io.github.comparecurrencyrate.domain.ComparisonResult;
 import io.github.comparecurrencyrate.domain.CurrencyRate;
+import io.github.comparecurrencyrate.service.currency.CurrencyRateRetrieverService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

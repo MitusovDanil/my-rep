@@ -1,7 +1,6 @@
 package io.github.comparecurrencyrate.domain.service;
 
 import io.github.comparecurrencyrate.integration.model.GifInfo;
-import io.github.comparecurrencyrate.service.currency.CurrencyRateComparisonService;
 import io.github.comparecurrencyrate.service.gif.GifRetrieverService;
 import org.springframework.stereotype.Service;
 

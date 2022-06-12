@@ -1,6 +1,7 @@
 package io.github.comparecurrencyrate.service.currency;
 
 import io.github.comparecurrencyrate.domain.CurrencyRate;
+import io.github.comparecurrencyrate.domain.service.CurrencyRateComparisonService;
 import io.github.comparecurrencyrate.service.currency.impl.CurrentCurrencyRateService;
 import io.github.comparecurrencyrate.service.currency.impl.HistoricalCurrencyRateService;
 import org.junit.jupiter.api.Test;
