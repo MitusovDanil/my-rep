@@ -6,7 +6,6 @@ import java.time.LocalDate;
 
 import static io.github.comparecurrencyrate.utils.CommonUtils.dayMinusOneAsString;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class CommonUtilsTest {
 
